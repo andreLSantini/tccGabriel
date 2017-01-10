@@ -7,11 +7,7 @@ Exemplo de aplicação MEAN (MongoDB, Express, Angular.js e Node.js) para contro
 
 > Inicie o MongoDB
 
-> git clone https://github.com/marcosflorencio/basic-mean.git
-
-> cd basic-mean
-
-> npm install
+>> npm install
 
 > node index.js
 
