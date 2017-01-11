@@ -15,6 +15,8 @@
 
 
     function  enviarComando(command){
+
+       console.log('command',command)
     	var method = 'POST'
         , url = '/app/publicar';
       return $http({
@@ -28,11 +30,12 @@
 
     function getUltimoValorLampada(){
       var method = 'GET'
-        , url = '/app/listar';
+        , url = '/app/listarcorrente';
       return $http({
         url : url,
         method : method
       }).then(function(response){
+        console.log('response',response)
         return response.data;
       });
     }

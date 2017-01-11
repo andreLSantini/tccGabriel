@@ -18,11 +18,12 @@ angular
       });
 
       function getLastPreService(LampadasViewService){
-        return LampadasViewService
-          .getUltimoValorLampada()
-          .then(function(response){
-            return response;
-          }); 
+        // return LampadasViewService
+        //   .getUltimoValorLampada()
+        //   .then(function(response){
+        //     return response;
+        //   }); 
+        return ;
       }
   };
 
@@ -31,6 +32,7 @@ angular
     var vm = this;
     vm.isLigada = isLigada;
     vm.lampada = {};  
+    vm.lampada.acesa = 1;
     verificaEAplicaValorDaLampada(getLastPreService);
 
     vm.enviarComando = enviarComando;
@@ -38,10 +40,10 @@ angular
 
     function enviarComando(){
        vm.lampada = {
-        topico : "topic_1",
-        status : vm.lampada.acesa
+        topico : 'topic_1',
+        message : vm.lampada.acesa
       }
-
+      console.log('vm',vm.lampada)
       LampadasViewService
         .enviarComando(vm.lampada);
        getLast();
@@ -57,6 +59,7 @@ angular
     }
        
     function verificaEAplicaValorDaLampada(arrayValues){
+      console.log('rassss',arrayValues)
       if(Array.isArray(arrayValues)){
         console.log('arrayValues[arrayValues.length-1].status;',arrayValues[arrayValues.length-1].status)
         if(arrayValues[arrayValues.length-1].status == 1){

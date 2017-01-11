@@ -18,25 +18,131 @@ angular
   DashBoardController.$inject = ['$state','DashBoardService'];
   function DashBoardController($state,DashBoardService){
     var vm = this;
+    vm.listaCorrete = [];
+    vm.listaPotencia = [];
+    vm.listaLampadas = [];
+    vm.listaVazao = [];
+    vm.listaConsumo = [];
 
     vm.getAllCorrente = getAllCorrente;
+    vm.getAllPotencia = getAllPotencia;
+    vm.getAllLampadas = getAllLampadas;
+    vm.getAllVazao = getAllVazao;
+    vm.getAllConsumo = getAllConsumo;
+
+    getAllCorrente();
+    getAllPotencia();
+    getAllLampadas();
+    getAllVazao();
+    getAllConsumo();
+
 
     function getAllCorrente(){
       return DashBoardService
         .getAllCorrente()
         .then(function(response){
-          console.log('kkkkkkk,',response)
+          console.log('getAllCorrente,',response)
+          vm.listaCorrete = response;
         });
     }
 
-    getAllCorrente();
+    function getAllPotencia(){
+      return DashBoardService
+        .getAllPotencia()
+        .then(function(response){
+          console.log('getAllPotencia,',response)
+          vm.listaPotencia = response;
+        });
+    }
 
+    function getAllLampadas(){
+      return DashBoardService
+        .getAllLampadas()
+        .then(function(response){
+          console.log('getAllLampadas,',response)
+          vm.listaLampadas = response;
+        });
+    }
+
+    function getAllVazao(){
+      return DashBoardService
+        .getAllVazao()
+        .then(function(response){
+          console.log('getAllVazao,',response)
+          vm.listaVazao = response;
+        });
+    }
+
+    function getAllConsumo(){
+      return DashBoardService
+        .getAllConsumo()
+        .then(function(response){
+          console.log('getAllConsumo,',response)
+          vm.getAllConsumo = response;
+        });
+    }
+
+    function mediaCorrente(listCorrente){
+      var mediaCorrenteObj = 0;
+      angular.forEach(listCorrente, function(value) {
+        if(value.corrente != ''){
+            mediaCorrenteObj += parseInt(value.corrente);
+        }
+      });
+      return mediaCorrenteObj/listCorrente.length;
+    }
+
+    function mediaConsumo(listConsumo){
+      var mediaConsumoObj = 0;
+      angular.forEach(listConsumo, function(value) {
+        if(value.consumo != ''){
+            mediaConsumoObj += parseInt(value.consumo);
+        }
+      });
+      return mediaConsumoObj/listConsumo.length;
+    }
+
+     function mediaPotencia(listPotencia){
+      var mediaPotenciaObj = 0;
+      angular.forEach(listPotencia, function(value) {
+        if(value.potencia != ''){
+            mediaPotenciaObj += parseInt(value.potencia);
+        }
+      });
+      return mediaPotenciaObj/listPotencia.length;
+    }
+
+     function mediaVazao(listVazao){
+      var mediaVazaoObj = 0;
+      angular.forEach(listVazao, function(value) {
+        if(value.vazao != ''){
+            mediaVazaoObj += parseInt(value.vazao);
+        }
+      });
+      return mediaVazaoObj/listVazao.length;
+    }
+
+     function mediaLampadas(listLampadas){
+      var mediaLampadasObj = 0;
+      angular.forEach(listLampadas, function(value) {
+        if(value.lampadas != ''){
+            mediaLampadasObj += parseInt(value.lampadas);
+        }
+      });
+      return mediaLampadasObj/listLampadas.length;
+    }
+    
+
+    
   google.charts.load('current', {packages: ['corechart', 'line']});
 	google.charts.setOnLoadCallback(drawBasic);	
+
 	google.charts.load("current", {packages:["corechart"]});
   google.charts.setOnLoadCallback(drawChart);
+
   google.charts.load('current', {packages: ['corechart', 'bar']});
 	google.charts.setOnLoadCallback(drawBarColors);
+
  	google.charts.load('current', {packages: ['corechart', 'bar']});
 	google.charts.setOnLoadCallback(drawBasic2);
 
@@ -66,7 +172,7 @@ angular
           title: 'Tempo em horas'
         },
         vAxis: {
-          title: 'Sei la'
+          title: 'Valores'
         }
       };
 
@@ -78,21 +184,22 @@ angular
     function drawChart() {
         var data = google.visualization.arrayToDataTable([
           ['Task', 'Hours per Day'],
-          ['Work',     11],
-          ['Eat',      2],
-          ['Commute',  2],
-          ['Watch TV', 2],
-          ['Sleep',    7]
+          ['Corrente',     mediaCorrente(vm.listaCorrete)],
+          ['Potencia',      mediaPotencia(vm.listaPotencia)],
+          ['Consumo',  mediaConsumo(vm.listaConsumo)],
+          ['Vazao', mediaVazao(vm.listaVazao)],
+          ['Lampadas',    mediaLampadas(vm.listaLampadas)]
         ]);
 
         var options = {
-          title: 'My Daily Activities',
+          title: 'um titulo bonito aqumediaCorrente(i',
           is3D: true,
         };
 
         var chart = new google.visualization.PieChart(document.getElementById('piechart_3d'));
         chart.draw(data, options);
       }
+
 
       function drawBarColors() {
       var data = google.visualization.arrayToDataTable([
