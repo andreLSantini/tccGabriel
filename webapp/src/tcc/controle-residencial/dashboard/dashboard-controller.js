@@ -2,8 +2,10 @@
 'use strict';
 angular
   .module('DashBoardControllers',[])
+
   .config(config)
   .controller('DashBoardController', DashBoardController);
+
 
   function config($stateProvider){
     $stateProvider
@@ -15,8 +17,8 @@ angular
       });
   };
 
-  DashBoardController.$inject = ['$state','DashBoardService'];
-  function DashBoardController($state,DashBoardService){
+  DashBoardController.$inject = ['$state','DashBoardService','socket'];
+  function DashBoardController($state,DashBoardService,socket){
     var vm = this;
     vm.listaCorrete = [];
     vm.listaPotencia = [];
@@ -29,15 +31,38 @@ angular
     vm.getAllLampadas = getAllLampadas;
     vm.getAllVazao = getAllVazao;
     vm.getAllConsumo = getAllConsumo;
-
+    vm.ultmoConsumo = 0;
+    vm.ultimaPotencia = 0;
     getAllCorrente();
     getAllPotencia();
     getAllLampadas();
     getAllVazao();
     getAllConsumo();
 
-    
 
+    var socket = io.connect();
+    vm.messages = [];
+
+        socket.on('potencia/client1',function(message){
+            console.log('eg tetra',message)
+            var dadoJson = JSON.parse(message);
+
+            if(dadoJson.topic == 'potencia/client1'){
+              console.log('eh potencia')
+              vm.ultimaPotencia = dadoJson.payload;
+              console.log('vm.ultimaPotencia',vm.ultimaPotencia)
+            }
+
+        });
+        socket.on('potencia/client1',function(message){
+            console.log('eg tetra',message)
+            var dadoJson = JSON.parse(message);
+
+            if(dadoJson.topic == 'consumo/client1'){
+              console.log('eh potencia')
+              vm.ultmoConsumo = dadoJson.payload;
+            }
+        });
 
 
     function getAllCorrente(){
@@ -139,11 +164,11 @@ angular
       });
       return mediaLampadasObj/listLampadas.length;
     }
-    
 
-    
+
+
   google.charts.load('current', {packages: ['corechart', 'line']});
-	google.charts.setOnLoadCallback(drawBasic);	
+	google.charts.setOnLoadCallback(drawBasic);
 
 	google.charts.load("current", {packages:["corechart"]});
   google.charts.setOnLoadCallback(drawChart);
@@ -154,7 +179,7 @@ angular
  	google.charts.load('current', {packages: ['corechart', 'bar']});
 	google.charts.setOnLoadCallback(drawBasic2);
 
-  
+
 	function drawBasic() {
 
       // var data = new google.visualization.DataTable();
@@ -209,7 +234,7 @@ angular
         { x: 20, y: getPotenciaMedia(),  label: "Potencia" },
         { x: 30, y: getVazaoMedia(),  label: "Vazao"},
         { x: 40, y: getConsumoMedia(),  label: "Consumo"},
-        
+
         ]
       }
       ]
@@ -236,7 +261,7 @@ angular
      function getConsumoMedia(){
        var valor = mediaConsumo(vm.listaConsumo);
        return parseInt(valor) || 0;
-     } 
+     }
 
     function drawChart() {
         var data = google.visualization.arrayToDataTable([
@@ -330,7 +355,7 @@ angular
 
    	function init(){
 
-   	}	
+   	}
 
 
   }

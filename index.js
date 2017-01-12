@@ -1,9 +1,12 @@
 var bodyParser = require('body-parser');
-var http = require('http');
+// var http = require('http');
 var express = require('express');
 var app = express();
 var bd = require('./config/bd.js');
 var device = require('./config/device.js');
+
+var http = require('http').Server(app);
+var io = require('socket.io')(http);
 
 
 var Corrente = require('./models/Corrente.js');
@@ -22,6 +25,25 @@ app.get('/', function(req, res) {
   res.sendFile(__dirname + '/webapp/index.html');
 })
 
+io.on('connection', function(socket){
+  console.log('a user connected');
+  socket.emit('change','messssssas');
+});
+
+
+io.sockets.on('connection', function(socket) {
+  var data = [
+    {text:'learn angular', done:true},
+    {text:'build an angular app', done:false}];
+
+  socket.emit('consumo/cliente1', data);
+
+  // socket.on('change', function(obj) {
+  //   console.log(obj);
+  //   data = obj;
+  //   socket.broadcast.emit('change', data);
+  // });
+});
 
 app.post('/app/publicar', function(req, res) {
   var topico = req.body.topico;
@@ -31,7 +53,12 @@ app.post('/app/publicar', function(req, res) {
         });
 });
 
-
+// io.sockets.emit('timetime: timeHistory});
+device
+  .on('message', function(topic, message) {
+    console.log('ouviu topic',topic);
+    io.sockets.emit(topic, message.toString());
+  });
 
 app.get('/app/listarcorrente', function(req, res) {
 
@@ -71,5 +98,5 @@ app.get('/app/listarlampadas', function(req, res) {
 
 app.use(express.static(__dirname + '/webapp'));
 
-app.listen(3000)
+http.listen(3000)
 console.log("localhost:3000")

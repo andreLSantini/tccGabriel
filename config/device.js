@@ -6,7 +6,6 @@ var Consumo = require('../models/Consumo.js');
 var Lampada = require('../models/Lampada.js');
 
 
-
 var device = awsIot.device({
   keyPath: './certificados/private.pem',
   certPath: './certificados/cert.pem',
@@ -24,7 +23,7 @@ device.subscribe('topic_1');
 device
   .on('connect', function() {
     console.log('Device connect');
-    device.subscribe('corrente/client1');
+  device.subscribe('corrente/client1');
 	device.subscribe('potencia/client1');
 	device.subscribe('vazao/client1');
 	device.subscribe('consumo/client1');
