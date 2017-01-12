@@ -1,26 +1,32 @@
-<form class="form-basic" name="formControleResidencial"  data-ng-submit="vm.enviarComando()"  >
-  <div class="row" >
-    <div class="col s12">      
+<form class="form-basic container" name="formControleResidencial"  data-ng-submit="vm.enviarComando()"  >
+  <div class="col-lg-12 col-md-12">
+    <div class="col-lg-12 col-md-12">
       <div class="panel-group">
         <div class="panel panel-primary">
           <div class="panel-heading">Controle de Lampada</div>
           <div class="panel-body">
-            <div>
+            <div class="col-md-6 col-lg-6 col-sm-6">
                 <h4>Click Para Acender ou Apagar!</h4>
-            </div>  
-            <div class="btn-group" role="group" aria-label="...">
-              <button ng-show="!vm.isLigada(1)" type="submit"  class="btn btn-success">Acender
-                 <i class="fa fa-lightbulb-o" ></i>
-              </button>
-              <button ng-show="vm.isLigada(0)"type="submit" class="btn btn-danger">Apagar
-                 <i class="fa fa-lightbulb-o" ></i>
-              </button>
             </div>
-
+            <div ng-show="!vm.isLigada(0)"class="col-xs-3">
+                <i class="fa fa-lightbulb-o fa-5x" style="color:black"></i>
+            </div>
+            <div ng-show="vm.isLigada(0)"class="col-xs-3">
+                <i class="fa fa-lightbulb-o fa-5x" style="color:yellow"></i>
+            </div>
+              <div class="col-md-12 col-lg-12 col-sm-12">
+              <div class="btn-group" role="group" aria-label="...">
+                <button ng-show="!vm.isLigada(1)" type="submit"  class="btn btn-success">Acender
+                   <i class="fa fa-lightbulb-o" ></i>
+                </button>
+                <button ng-show="vm.isLigada(0)"type="submit" class="btn btn-danger">Apagar
+                   <i class="fa fa-lightbulb-o" ></i>
+                </button>
+              </div>
+            </div>
           </div>
          </div>
         </div>
       </div>
     </div>
 </form>
-
