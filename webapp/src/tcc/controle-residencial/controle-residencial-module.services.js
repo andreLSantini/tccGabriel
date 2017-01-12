@@ -3,6 +3,7 @@
   angular
     .module('ControleResidencial.services',[
       'LampadasViewServices',
-      'DashBoardServices'
+      'DashBoardServices',
+      'SensoresServices'
     ])
 }());

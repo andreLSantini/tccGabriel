@@ -1,0 +1,14 @@
+
+<form  class="form-basic" name="formDashBoard"  data-ng-submit="vm.enviarComando()"  >
+  <div class="col-md-12" >
+  	<h3>Grafico  de Consumo em Tempo Real</h3>
+  </div>
+  <div class="col-md-12" >
+  	<div id="chartContainerBarra" style="height: 300px; width: 100%;"></div>
+  </div>
+
+  {{vm.returnArray || json}}
+</form>
+
+
+

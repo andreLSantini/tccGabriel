@@ -74,7 +74,7 @@ device
   		var mensagem = message.toString();
   		var consumoJson = JSON.parse(mensagem);
   		var consumo = new Consumo({
-        consumo: corrente.payload,
+        consumo: consumoJson.payload,
         data: new Date()
       });
       consumo.save(function(err) {

@@ -3,6 +3,7 @@
   angular
     .module('ControleResidencial.controllers',[
       'LampadasViewControllers',
-      'DashBoardControllers'
+      'DashBoardControllers',
+      'SensorConsumoControllers'
     ]);
 }());
