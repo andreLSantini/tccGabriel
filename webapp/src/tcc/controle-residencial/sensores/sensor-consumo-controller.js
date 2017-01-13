@@ -20,7 +20,7 @@ angular
     var vm = this;
     vm.returnArray = [];
     
-    carregaGraficoEmBarras();	
+    // carregaGraficoEmBarras();	
 
     function carregaGraficoEmBarras(){
       var chart = new CanvasJS.Chart("chartContainerBarra",

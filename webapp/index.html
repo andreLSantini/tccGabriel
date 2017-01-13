@@ -1,125 +1,122 @@
-	<!DOCTYPE html>
+<!DOCTYPE html>
 <html data-ng-app="app">
 <meta charset="utf-8">
+
 <head>
-	<title>Teste</title>
+  <title>Teste</title>
 
-	<!--materialize css-->
-	<!-- <link rel="stylesheet" type="text/css" href="materialize/css/materialize.min.css"> -->
-	 <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
-	  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-	    <link rel="stylesheet" type="text/css" href="css/style.css">
-	    <link href="css/sb-admin.css" rel="stylesheet">
-	    <link href="css/iot.css" rel="stylesheet">
+  <!--materialize css-->
+  <!-- <link rel="stylesheet" type="text/css" href="materialize/css/materialize.min.css"> -->
+  <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <link href="css/sb-admin.css" rel="stylesheet">
+  <link href="css/iot.css" rel="stylesheet">
 
-	    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-			<link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-			<link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-	<!--custom css-->
-	<link rel="stylesheet" type="text/css" href="css/style.css">
+  <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <!--custom css-->
+  <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
+
 <body>
-    <div id="wrapper">
-        <!-- Navigation -->
-        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-                    <span class="sr-only"></span>
+
+  <div id="wrapper">
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">Sistema Controle Residencial - TCC</a>
-            </div>
+        <a class="navbar-brand" href="index.html">SB Admin</a>
+      </div>
+      <!-- Top Menu Items -->
+      <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
+      <div class="collapse navbar-collapse navbar-ex1-collapse">
+        <ul class="nav navbar-nav side-nav">
+          <li class="active">
+            <a href="#/dashboard-view"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
+          </li>
+          <li>
+            <a href="#/lampadas-view"><i class="fa fa-university fa-lg"></i> Controle Residencial</a>
+          </li>
+          <li>
+            <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-arrows-v"></i> Sensores <i class="fa fa-fw fa-caret-down"></i></a>
+            <ul id="demo" class="collapse">
+              <li>
+                <a href="#/sensor-consumo">Sensor Consumo</a>
+              </li>
+              <li>
+                <a href="#/sensor-consumo">Sensor Potencia</a>
+              </li>
+              <li>
+                <a href="#/sensor-consumo">Sensor Vazao</a>
+              </li>
+              <li>
+                <a href="#/sensor-consumo">Sensor Corrente</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <!-- /.navbar-collapse -->
+    </nav>
 
-            <div class="collapse navbar-collapse navbar-ex1-collapse">
-                <ul class="nav navbar-nav side-nav">
-                    <li class="active">
-                        <a href="#/dashboard-view">
-                       		<i class="fa fa-fw fa-dashboard"></i> Dashboard
-                       	</a>
-                    </li>
-                    </li>
-                    <li>
-	                  <a href="#/lampadas-view">
-	                  <i class="fa fa-university fa-lg"></i> Controle Residencial
-	                  </a>
-	                </li>
-                    <li>
-                        <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-arrows-v"></i> Sensores <i class="fa fa-fw fa-caret-down"></i></a>
-                        <ul id="demo" class="collapse">
-                            <li>
-                                <a href="#/sensor-consumo">
-																	<i class="fa fa-tachometer fa-lg" style="color:white"></i>
-																	Sensor Consumo
-																</a>
-                            </li>
-                            <li>
-                                <a href="#/sensor-consumo">Sensor Potencia</a>
-                            </li>
-                            <li>
-                                <a href="#/sensor-consumo">Sensor Vazao</a>
-                            </li>
-                            <li>
-                                <a href="#/sensor-consumo">Sensor Corrente</a>
-                            </li>
-                        </ul>
-                    </li>
-
-                </ul>
-            </div>
-        </nav>
-
-
+    <div id="page-wrapper">
+      <div ui-view></div>
     </div>
+  </div>
 
-    <div class="container">
-	 	<div ui-view></div>
-	</div>
-   </body>
-	<script type="text/javascript" src="js/angular.min.js"></script>
-	<script type="text/javascript" src="js/angular-ui-router.min.js"></script>
-	<script type="text/javascript" src="js/app.js"></script>
-	<script type="text/javascript" src="js/routes.js"></script>
-	<script type="text/javascript" src="js/socket.io.js"></script>
+</body>
+<script type="text/javascript" src="js/angular.min.js"></script>
+<script type="text/javascript" src="js/angular-ui-router.min.js"></script>
+<script type="text/javascript" src="js/app.js"></script>
+<script type="text/javascript" src="js/routes.js"></script>
+<script type="text/javascript" src="js/socket.io.js"></script>
 
-	<script type="text/javascript" src="src/matricula/matricula-module.js"></script>
-	<script type="text/javascript" src="src/matricula/matricula-module.controllers.js"></script>
-	<script type="text/javascript" src="src/matricula/matricula-module.services.js"></script>
-	<script type="text/javascript" src="src/matricula/matricula-module.factories.js"></script>
-	<script type="text/javascript" src="src/matricula/matricula-module.directives.js"></script>
-	<script type="text/javascript" src="src/matricula/matricula-module.filters.js"></script>
+<script type="text/javascript" src="src/matricula/matricula-module.js"></script>
+<script type="text/javascript" src="src/matricula/matricula-module.controllers.js"></script>
+<script type="text/javascript" src="src/matricula/matricula-module.services.js"></script>
+<script type="text/javascript" src="src/matricula/matricula-module.factories.js"></script>
+<script type="text/javascript" src="src/matricula/matricula-module.directives.js"></script>
+<script type="text/javascript" src="src/matricula/matricula-module.filters.js"></script>
 
-	<script type="text/javascript" src="src/matricula/aluno/aluno-create.controller.js"></script>
-	<script type="text/javascript" src="src/matricula/aluno/aluno-edit.controller.js"></script>
-	<script type="text/javascript" src="src/matricula/aluno/aluno-list.controller.js"></script>
-	<script type="text/javascript" src="src/matricula/aluno/aluno.service.js"></script>
+<script type="text/javascript" src="src/matricula/aluno/aluno-create.controller.js"></script>
+<script type="text/javascript" src="src/matricula/aluno/aluno-edit.controller.js"></script>
+<script type="text/javascript" src="src/matricula/aluno/aluno-list.controller.js"></script>
+<script type="text/javascript" src="src/matricula/aluno/aluno.service.js"></script>
 
-	<script type="text/javascript" src="src/tcc/controle-residencial/controle-residencial-module.js"></script>
-	<script type="text/javascript" src="src/tcc/controle-residencial/controle-residencial-module.controllers.js"></script>
-	<script type="text/javascript" src="src/tcc/controle-residencial/controle-residencial-module.services.js"></script>
-	<script type="text/javascript" src="src/tcc/controle-residencial/controle-residencial-module.directives.js"></script>
+<script type="text/javascript" src="src/tcc/controle-residencial/controle-residencial-module.js"></script>
+<script type="text/javascript" src="src/tcc/controle-residencial/controle-residencial-module.controllers.js"></script>
+<script type="text/javascript" src="src/tcc/controle-residencial/controle-residencial-module.services.js"></script>
+<script type="text/javascript" src="src/tcc/controle-residencial/controle-residencial-module.directives.js"></script>
 
-	<script type="text/javascript" src="src/tcc/controle-residencial/lampadas/lampadas-view.controller.js"></script>
-	<script type="text/javascript" src="src/tcc/controle-residencial/lampadas/lampadas-view.service.js"></script>
+<script type="text/javascript" src="src/tcc/controle-residencial/lampadas/lampadas-view.controller.js"></script>
+<script type="text/javascript" src="src/tcc/controle-residencial/lampadas/lampadas-view.service.js"></script>
 
-	<script type="text/javascript" src="src/tcc/controle-residencial/dashboard/dashboard-controller.js"></script>
-	<script type="text/javascript" src="src/tcc/controle-residencial/dashboard/dashboard-view.service.js"></script>
+<script type="text/javascript" src="src/tcc/controle-residencial/dashboard/dashboard-controller.js"></script>
+<script type="text/javascript" src="src/tcc/controle-residencial/dashboard/dashboard-view.service.js"></script>
 
-	<script type="text/javascript" src="src/tcc/controle-residencial/sensores/sensores.service.js"></script>
-	<script type="text/javascript" src="src/tcc/controle-residencial/sensores/sensor-consumo-controller.js"></script>
+<script type="text/javascript" src="src/tcc/controle-residencial/sensores/sensores.service.js"></script>
+<script type="text/javascript" src="src/tcc/controle-residencial/sensores/sensor-consumo-controller.js"></script>
 
 
 <!-- <script src="https://cdn.socket.io/socket.io-1.4.5.js"></script> -->
 
-	<!--Jquery-->
-	<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
-	<!---materialize js-->
-	<!-- // <script type="text/javascript" src="materialize/js/materialize.min.js"></script> -->
+<!--Jquery-->
+<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+<!---materialize js-->
+<!-- // <script type="text/javascript" src="materialize/js/materialize.min.js"></script> -->
 
-	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-	  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-	  <!-- // <script type="text/javascript" src="js/chart.min.js"></script> -->
-	  <script src="http://canvasjs.com/assets/script/canvasjs.min.js"></script>
-	  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<!-- // <script type="text/javascript" src="js/chart.min.js"></script> -->
+<script src="http://canvasjs.com/assets/script/canvasjs.min.js"></script>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
 </html>
