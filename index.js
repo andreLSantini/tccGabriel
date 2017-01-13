@@ -27,16 +27,11 @@ app.get('/', function(req, res) {
 
 io.on('connection', function(socket){
   console.log('a user connected');
-  socket.emit('change','messssssas');
 });
 
 
 io.sockets.on('connection', function(socket) {
-  var data = [
-    {text:'learn angular', done:true},
-    {text:'build an angular app', done:false}];
 
-  socket.emit('consumo/cliente1', data);
 
   // socket.on('change', function(obj) {
   //   console.log(obj);

@@ -18,7 +18,7 @@
                                         <i class="fa fa-italic fa-5x"></i>
                                     </div>
                                     <div class="col-xs-9 text-right">
-                                        <div class="huge">26 A</div>
+                                        <div class="huge"><p ng-bind="ultimacorrente"></p> A</div>
                                         <div>Corrente!</div>
                                     </div>
                                 </div>
@@ -40,7 +40,7 @@
                                         <i class="fa fa-shower fa-4x"></i>
                                     </div>
                                     <div class="col-xs-9 text-right">
-                                        <div class="huge">12 l/min</div>
+                                        <div class="huge"><p ng-bind="ultimavazao"></p> l/min</div>
                                         <div>Vazao!</div>
                                     </div>
                                 </div>
@@ -63,7 +63,7 @@
                                         <i class="fa fa-lightbulb-o fa-5x"></i>
                                     </div>
                                     <div class="col-xs-9 text-right">
-                                        <div class="huge" ng-model="vm.ultimaPotencia" > W</div>
+                                         <div class="huge"><p ng-bind="ultimapotencia"></p> W</div>
                                         <div>Potencia!</div>
                                     </div>
                                 </div>
@@ -85,7 +85,8 @@
                                         <i class="fa fa-tachometer fa-5x"></i>
                                     </div>
                                     <div class="col-xs-9 text-right">
-                                        <div class="huge">{{vm.ultmoConsumo}} kWh</div>
+                                        <div class="huge"><p ng-bind="ultimoConsumo"></p> kWh</div>
+
                                         <div>Consumo!</div>
                                     </div>
                                 </div>
@@ -107,24 +108,19 @@
                     </div>
                     <div class="panel-body">
                       <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12" >
-                    		<!-- <div id="chart_div"></div> -->
-                    		<div id="chartContainerBarra" style="height: 300px; width: 100%;"></div>
-                    	</div>
-                      <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12" >
-                    		<div id="piechart_3d" style="height: 400px;"></div>
-                    	</div>
+                            <div id="chartContainerPotencia" style="height: 300px; width: 100%;"></div>
+                      </div>
+                       <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12" >
+                            <div id="chartContainerConsumo" style="height: 300px; width: 100%;"></div>
+                      </div>
+                       <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12" >
+                            <div id="chartContainerVazao" style="height: 300px; width: 100%;"></div>
+                      </div>
+                       <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12" >
+                            <div id="chartContainerCorrente" style="height: 300px; width: 100%;"></div>
+                      </div>
                     </div>
                 </div>
       </div>
-
-	<div class="col-md-6 col-lg-6 col-sm-12 col-xs-12" >
-		<div id="piechart_3d" style="height: 300px;"></div>
-	</div>
-	<div class="col-md-6 col-lg-6 col-sm-12 col-xs-12" >
-		 <!-- <div id="chart_div2"></div> -->
-	</div>
-	<div class="col-md-6 col-lg-6 col-sm-12 col-xs-12" >
-		 <!-- <div id="chart_div3"></div> -->
-	</div>
   </div>
 </form>
