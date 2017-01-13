@@ -185,7 +185,7 @@ angular
 
             socket.on('vazao/client1',function(message){
               yVal = yVal + 3;
-              dps.push({x: xVal,y: parseInt(message)});
+              dps.push({x: xVal,y: parseFloat(message)});
              });
             
             xVal++;
@@ -230,7 +230,7 @@ angular
 
             socket.on('corrente/client1',function(message){
               yVal = yVal + 3;
-              dps.push({x: xVal,y: parseInt(message)});
+              dps.push({x: xVal,y: parseFloat(message)});
              });
             
             xVal++;
@@ -301,7 +301,7 @@ angular
       var mediaCorrenteObj = 0;
       angular.forEach(listCorrente, function(value) {
         if(value.corrente != ''){
-            mediaCorrenteObj += parseInt(value.corrente);
+            mediaCorrenteObj += parseFloat(value.corrente);
         }
       });
       return mediaCorrenteObj/listCorrente.length;
@@ -311,7 +311,7 @@ angular
       var mediaConsumoObj = 0;
       angular.forEach(listConsumo, function(value) {
         if(value.consumo != ''){
-            mediaConsumoObj += parseInt(value.consumo);
+            mediaConsumoObj += parseFloat(value.consumo);
         }
       });
       return mediaConsumoObj/listConsumo.length;
@@ -321,7 +321,7 @@ angular
       var mediaPotenciaObj = 0;
       angular.forEach(listPotencia, function(value) {
         if(value.potencia != ''){
-            mediaPotenciaObj += parseInt(value.potencia);
+            mediaPotenciaObj += parseFloat(value.potencia);
         }
       });
       return mediaPotenciaObj/listPotencia.length;
