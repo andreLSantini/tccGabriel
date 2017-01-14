@@ -27,7 +27,7 @@ device
 	device.subscribe('potencia/client1');
 	device.subscribe('vazao/client1');
 	device.subscribe('consumo/client1');
-	device.subscribe('topic_1');
+	device.subscribe('topic1');
   });
 
   device
@@ -81,9 +81,9 @@ device
       });
   	}
 
-  	if(topic == 'topic_1'){
-      console.log('topic_1 lampada message',message.toString());
-      console.log('topic_1 lampada topic',topic)
+  	if(topic == 'topic1'){
+      console.log('topic1 lampada message',message.toString());
+      console.log('topic1 lampada topic',topic)
   		var mensagem = message.toString();
   		
       var lampada = new Lampada({

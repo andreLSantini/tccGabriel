@@ -58,7 +58,7 @@ angular
     function enviarComando(){
        var valorLampada = vm.lampada.novo;
        var lampadaCommand = {
-        topico : 'topic_1',
+        topico : 'topic1',
         message : vm.valor
       }
       console.log('vm',lampadaCommand)
