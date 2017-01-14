@@ -82,12 +82,14 @@ device
   	}
 
   	if(topic == 'topic_1'){
+      console.log('topic_1 lampada message',message.toString());
+      console.log('topic_1 lampada topic',topic)
   		var mensagem = message.toString();
-  		var lampadaJson = JSON.parse(mensagem);
-  		var lampada = new Lampada({
-        lampada: lampada.payload,
+  		
+      var lampada = new Lampada({
+        lampada: mensagem,
         data: new Date(),
-        status : lampada.payload
+        status : mensagem
       });
       lampada.save(function(err) {
         if (err) throw err;

@@ -8,18 +8,18 @@
             <div class="col-md-6 col-lg-6 col-sm-6">
                 <h4>Click Para Acender ou Apagar!</h4>
             </div>
-            <div ng-show="!vm.isLigada(0)"class="col-xs-3">
+            <div ng-show="!vm.isLigada()"class="col-xs-3">
                 <i class="fa fa-lightbulb-o fa-5x" style="color:black"></i>
             </div>
-            <div ng-show="vm.isLigada(0)"class="col-xs-3">
+            <div ng-show="vm.isLigada()"class="col-xs-3">
                 <i class="fa fa-lightbulb-o fa-5x" style="color:yellow"></i>
             </div>
               <div class="col-md-12 col-lg-12 col-sm-12">
               <div class="btn-group" role="group" aria-label="...">
-                <button ng-show="!vm.isLigada(1)" type="submit"  class="btn btn-success">Acender
+                <button ng-show="!vm.isLigada()" type="submit"  class="btn btn-success">Acender
                    <i class="fa fa-lightbulb-o" ></i>
                 </button>
-                <button ng-show="vm.isLigada(0)"type="submit" class="btn btn-danger">Apagar
+                <button ng-show="vm.isLigada()"type="submit" class="btn btn-danger">Apagar
                    <i class="fa fa-lightbulb-o" ></i>
                 </button>
               </div>

@@ -30,7 +30,7 @@
 
     function getUltimoValorLampada(){
       var method = 'GET'
-        , url = '/app/listarcorrente';
+        , url = '/app/listarlampadas';
       return $http({
         url : url,
         method : method
