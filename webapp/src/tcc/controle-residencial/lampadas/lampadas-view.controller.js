@@ -66,11 +66,11 @@ angular
         .enviarComando(lampadaCommand);
 
       if(vm.valor==1){
-          vm.valor = 0;
+          vm.valor = '0';
         return;
       }
       if(vm.valor==0){
-          vm.valor = 1;
+          vm.valor = '1';
         return;
       }
    
